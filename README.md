@@ -162,7 +162,7 @@ Long declaration should be ordered alphabetically within clusters.
   top: 0;
   z-index: 10;
 
-  // Display & Box Model
+  // Display
   border: 10px solid #333;
   box-sizing: border-box;
   display: inline-block;
@@ -201,12 +201,12 @@ be used; one example is shown below.
 
 ```css
 .selector {
-    background-image:
-        linear-gradient(#FFF, #CCC),
-        linear-gradient(#F3C, #4EC);
-    box-shadow:
-        1px 1px 1px #000,
-        2px 2px 1px 1px #CCC inset;
+  background-image:
+      linear-gradient(#FFF, #CCC),
+      linear-gradient(#F3C, #4EC);
+  box-shadow:
+      1px 1px 1px #000,
+      2px 2px 1px 1px #CCC inset;
 }
 ```
 
@@ -238,14 +238,14 @@ The following guidelines are in reference to MUI Sass.
 
 ```scss
 .selector-1 {
-    @extend .other-rule;
-    @include clearfix();
-    @include box-sizing(border-box);
-    width: x-grid-unit(1);
-    height: xCellHeight;
-    color: mui-color('red', '500');
-    line-height: $mui-base-line-height;
-    // other declarations
+  @extend .other-rule;
+  @include clearfix();
+  @include box-sizing(border-box);
+  width: x-grid-unit(1);
+  height: xCellHeight;
+  color: mui-color('red', '500');
+  line-height: $mui-base-line-height;
+  // other declarations
 }
 ```
 
@@ -265,9 +265,9 @@ An example of various conventions.
  * Example HTML:
  *
  * <div class="grid">
- *     <div class="cell cell-3"></div>
- *     <div class="cell cell-3"></div>
- *     <div class="cell cell-3"></div>
+ *   <div class="cell cell-3"></div>
+ *   <div class="cell cell-3"></div>
+ *   <div class="cell cell-3"></div>
  * </div>
  */
 
