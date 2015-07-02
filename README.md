@@ -152,7 +152,7 @@ in useful diffs and blames.
 
 Long declaration should be ordered alphabetically within clusters.
 
-```css
+```scss
 .selector {
   // Positioning
   bottom: 0;
