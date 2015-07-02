@@ -154,7 +154,7 @@ Long declaration should be ordered alphabetically within clusters.
 
 ```css
 .selector {
-  /* Positioning */
+  // Positioning
   bottom: 0;
   left: 0;
   position: absolute;
@@ -162,7 +162,7 @@ Long declaration should be ordered alphabetically within clusters.
   top: 0;
   z-index: 10;
 
-  /* Display & Box Model */
+  // Display & Box Model
   border: 10px solid #333;
   box-sizing: border-box;
   display: inline-block;
@@ -172,7 +172,7 @@ Long declaration should be ordered alphabetically within clusters.
   padding: 10px;
   width: 100px;
 
-  /* Other */
+  // Other
   background: #000;
   color: #FFF;
   font-family: Sans-Serif;
