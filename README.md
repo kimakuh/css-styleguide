@@ -249,10 +249,6 @@ preprocessor in use. The following guidelines are in reference to Sass.
 An example of various conventions.
 
 ```css
-// ============================================================================
-// GRID-LAYOUT
-// ============================================================================
-
 /**
  * Column layout with horizontal scroll.
  *
@@ -267,6 +263,12 @@ An example of various conventions.
  *     <div class="cell cell-3"></div>
  * </div>
  */
+
+
+
+// ============================================================================
+// GRID-LAYOUT
+// ============================================================================
 
 /**
  * Grid container
