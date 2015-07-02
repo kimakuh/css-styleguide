@@ -43,13 +43,10 @@ readability.
 * _Never_ mix spaces and tabs for indentation.
 * Use soft indents (spaces).
 * Use 2 spaces per indentation level.
+* Use 3 line breaks before an L1 comment block ("===")
+* Use 2 line breaks before an L2 comment block ("---")
+* Remove trailing end-of-line whitespace
 
-Tip: configure your editor to "show invisibles" or to automatically remove
-end-of-line whitespace.
-
-Tip: use an [EditorConfig](http://editorconfig.org/) file (or equivalent) to
-help maintain the basic whitespace conventions that have been agreed for your
-code-base.
 
 
 <a name="comments"></a>
@@ -102,7 +99,7 @@ Example:
 
 /* This will be left in by the sass compiler */
 
-$myVar: 5px;  // use inline comments sparingly (2 space indent)
+$myVar: 5px;  // Use inline comments sparingly and with 2 space indent
 
 ```
 
@@ -119,7 +116,7 @@ in useful diffs and blames.
 * Include one declaration per line in a declaration block.
 * Use one level of indentation for each declaration.
 * Include a single space after the colon of a declaration.
-* Use lowercase and shorthand hex values, e.g., `#aaa`.
+* Use uppercase and shorthand hex values, e.g., `#FFF`.
 * Use double quotes consistently.
 * Quote attribute values in selectors, e.g., `input[type="checkbox"]`.
 * _Where allowed_, avoid specifying units for zero-values, e.g., `margin: 0`.
@@ -137,12 +134,12 @@ in useful diffs and blames.
 .selector-3[type="text"] {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  background: #fff;
-  background: linear-gradient(#fff, rgba(0, 0, 0, 0.8));
+  background: #FFF;
+  background: linear-gradient(#FFF, rgba(0, 0, 0, 0.8));
   box-sizing: border-box;
   color: #333;
   display: block;
-  font-family: helvetica, arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 }
 
 .selector-a,
@@ -177,8 +174,8 @@ Long declaration should be ordered alphabetically within clusters.
 
   /* Other */
   background: #000;
-  color: #fff;
-  font-family: sans-serif;
+  color: #FFF;
+  font-family: Sans-Serif;
   font-size: 16px;
   text-align: right;
 }
@@ -205,19 +202,17 @@ be used; one example is shown below.
 ```css
 .selector {
     background-image:
-        linear-gradient(#fff, #ccc),
-        linear-gradient(#f3c, #4ec);
+        linear-gradient(#FFF, #CCC),
+        linear-gradient(#F3C, #4EC);
     box-shadow:
         1px 1px 1px #000,
-        2px 2px 1px 1px #ccc inset;
+        2px 2px 1px 1px #CCC inset;
 }
 ```
 
-### Preprocessors: additional format considerations
+### SCSS: additional format considerations
 
-Different CSS preprocessors have different features, functionality, and syntax.
-Your conventions should be extended to accommodate the particularities of any
-preprocessor in use. The following guidelines are in reference to Sass.
+The following guidelines are in reference to MUI Sass.
 
 * Limit nesting to 2 level deep. Reassess any nesting more than 2 levels deep.
   This prevents overly-specific CSS selectors.
@@ -231,6 +226,15 @@ preprocessor in use. The following guidelines are in reference to Sass.
 * Consider prefixing custom functions with `x-` or another namespace. This
   helps to avoid any potential to confuse your function with a native CSS
   function, or to clash with functions from libraries.
+* Consider prefixing custom module-level variables with `x` or another
+  namespace. This helps to avoid any potential to confuse your variable with
+  other global variables.
+* Use camelCase syntax for internal variables.
+* Use hyphenated-function-names for SASS functions.
+* Use $mui-hyphenated-variable-name for variables that are exposed to
+  end users.
+* Use mui-hyphenated-function-name for SASS functions that are exposed to
+  end users.
 
 ```scss
 .selector-1 {
@@ -238,6 +242,9 @@ preprocessor in use. The following guidelines are in reference to Sass.
     @include clearfix();
     @include box-sizing(border-box);
     width: x-grid-unit(1);
+    height: xCellHeight;
+    color: mui-color('red', '500');
+    line-height: $mui-base-line-height;
     // other declarations
 }
 ```
