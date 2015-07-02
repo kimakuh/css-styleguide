@@ -1,4 +1,4 @@
-# MUI CSS Styleguide (Adapted from necolas/idomatic-css)
+# MUI CSS Styleguide
 
 The following document outlines a reasonable style guide for CSS development.
 These guidelines strongly encourage the use of existing, common, sensible
@@ -75,13 +75,13 @@ comment patterns.
 Example:
 
 ```css
-// ==========================================================================
-// Section comment block
-// ==========================================================================
+// ============================================================================
+// SECTION-COMMENT-BLOCK
+// ============================================================================
 
-// --------------------------------------------------------------------------
-// Sub-section comment block
-// --------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// SUB-SECTION-COMMENT-BLOCK
+// ----------------------------------------------------------------------------
 
 /**
  * Short description using Doxygen-style comment format
@@ -100,7 +100,12 @@ Example:
  *   indented by 2 spaces.
  */
 
-/* Basic comment */
+// Basic comment that will be removed by the sass compiler
+
+/* This will be left in by the sass compiler */
+
+$myVar: 5px;  // use inline comments sparingly (2 space indent)
+
 ```
 
 
@@ -117,8 +122,7 @@ in useful diffs and blames.
 * Use one level of indentation for each declaration.
 * Include a single space after the colon of a declaration.
 * Use lowercase and shorthand hex values, e.g., `#aaa`.
-* Use single or double quotes consistently. Preference is for double quotes,
-  e.g., `content: ""`.
+* Use double quotes consistently.
 * Quote attribute values in selectors, e.g., `input[type="checkbox"]`.
 * _Where allowed_, avoid specifying units for zero-values, e.g., `margin: 0`.
 * Include a space after each comma in comma-separated property or function
@@ -133,61 +137,55 @@ in useful diffs and blames.
 .selector-1,
 .selector-2,
 .selector-3[type="text"] {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    display: block;
-    font-family: helvetica, arial, sans-serif;
-    color: #333;
-    background: #fff;
-    background: linear-gradient(#fff, rgba(0, 0, 0, 0.8));
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  font-family: helvetica, arial, sans-serif;
+  color: #333;
+  background: #fff;
+  background: linear-gradient(#fff, rgba(0, 0, 0, 0.8));
 }
 
 .selector-a,
 .selector-b {
-    padding: 10px;
+  padding: 10px;
 }
 ```
 
 #### Declaration order
 
-If declarations are to be consistently ordered, it should be in accordance with
-a single, simple principle.
-
-Smaller teams may prefer to cluster related properties (e.g. positioning and
-box-model) together.
+Long declaration should be ordered alphabetically within clusters.
 
 ```css
 .selector {
-    /* Positioning */
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  /* Positioning */
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
 
-    /* Display & Box Model */
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-    border: 10px solid #333;
-    margin: 10px;
+  /* Display & Box Model */
+  border: 10px solid #333;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100px;
+  margin: 10px;
+  overflow: hidden;
+  padding: 10px;
+  width: 100px;
 
-    /* Other */
-    background: #000;
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 16px;
-    text-align: right;
+  /* Other */
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 16px;
+  text-align: right;
 }
 ```
 
-Larger teams may prefer the simplicity and ease-of-maintenance that comes with
-alphabetical ordering.
 
 #### Exceptions and slight deviations
 
@@ -223,7 +221,7 @@ Different CSS preprocessors have different features, functionality, and syntax.
 Your conventions should be extended to accommodate the particularities of any
 preprocessor in use. The following guidelines are in reference to Sass.
 
-* Limit nesting to 1 level deep. Reassess any nesting more than 2 levels deep.
+* Limit nesting to 2 level deep. Reassess any nesting more than 2 levels deep.
   This prevents overly-specific CSS selectors.
 * Avoid large numbers of nested rules. Break them up when readability starts to
   be affected. Preference to avoid nesting that spreads over more than 20
@@ -253,9 +251,9 @@ preprocessor in use. The following guidelines are in reference to Sass.
 An example of various conventions.
 
 ```css
-/* ==========================================================================
-   Grid layout
-   ========================================================================== */
+// ============================================================================
+// GRID-LAYOUT
+// ============================================================================
 
 /**
  * Column layout with horizontal scroll.
@@ -282,9 +280,9 @@ An example of various conventions.
  */
 
 .grid {
-    height: 100%;
-    font-size: 0; /* 1 */
-    white-space: nowrap; /* 2 */
+  font-size: 0; /* 1 */
+  height: 100%;
+  white-space: nowrap; /* 2 */
 }
 
 /**
@@ -292,32 +290,33 @@ An example of various conventions.
  *
  * No explicit width by default. Extend with `.cell-n` classes.
  *
- * 1. Set the inter-cell spacing
- * 2. Reset white-space inherited from `.grid`
- * 3. Reset font-size inherited from `.grid`
+ * 1. Reset font-size inherited from `.grid`
+ * 2. Set the inter-cell spacing
+ * 3. Reset white-space inherited from `.grid`
  */
 
 .cell {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 0 10px; /* 1 */
-    border: 2px solid #333;
-    vertical-align: top;
-    white-space: normal; /* 2 */
-    font-size: 16px; /* 3 */
+  border: 2px solid #333;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 16px; /* 1 */
+  height: 100%;
+  overflow: hidden;
+  padding: 0 10px; /* 2 */
+  position: relative;
+  vertical-align: top;
+  white-space: normal; /* 3 */
 }
 
 /* Cell states */
 
 .cell.is-animating {
-    background-color: #fffdec;
+  background-color: #fffdec;
 }
 
-/* Cell dimensions
-   ========================================================================== */
+// ----------------------------------------------------------------------------
+// CELL-DIMENSIONS
+// ----------------------------------------------------------------------------
 
 .cell-1 { width: 10%; }
 .cell-2 { width: 20%; }
@@ -325,53 +324,12 @@ An example of various conventions.
 .cell-4 { width: 40%; }
 .cell-5 { width: 50%; }
 
-/* Cell modifiers
-   ========================================================================== */
+// ----------------------------------------------------------------------------
+// CELL-MODIFIERS
+// ----------------------------------------------------------------------------
 
 .cell--detail,
 .cell--important {
-    border-width: 4px;
+  border-width: 4px;
 }
 ```
-
-
-## Translations
-
-* [Bahasa Indonesia](https://github.com/necolas/idiomatic-css/tree/master/translations/id-ID)
-* [Bulgarian](https://github.com/vestimir/idiomatic-css)
-* [Česky](https://github.com/necolas/idiomatic-css/tree/master/translations/cs-CZ)
-* [Dansk](https://github.com/necolas/idiomatic-css/tree/master/translations/da-DK)
-* [Deutsch](https://github.com/necolas/idiomatic-css/tree/master/translations/de-DE)
-* [Español](https://github.com/necolas/idiomatic-css/tree/master/translations/es-ES)
-* [Français](https://github.com/necolas/idiomatic-css/tree/master/translations/fr-FR)
-* [Italiano](https://github.com/necolas/idiomatic-css/tree/master/translations/it-IT)
-* [日本語](https://github.com/necolas/idiomatic-css/tree/master/translations/ja-JP)
-* [한국어](https://github.com/necolas/idiomatic-css/tree/master/translations/ko-KR)
-* [Nederlands](https://github.com/necolas/idiomatic-css/tree/master/translations/nl-NL)
-* [Polski](https://github.com/necolas/idiomatic-css/tree/master/translations/pl-PL)
-* [Português (Brasil)](https://github.com/necolas/idiomatic-css/tree/master/translations/pt-BR)
-* [Русский](https://github.com/necolas/idiomatic-css/tree/master/translations/ru-RU)
-* [Srpski](https://github.com/necolas/idiomatic-css/tree/master/translations/sr-SR)
-* [Türkçe](https://github.com/necolas/idiomatic-css/tree/master/translations/tr-TR)
-* [正體中文](https://github.com/necolas/idiomatic-css/tree/master/translations/zh-TW)
-* [简体中文](https://github.com/necolas/idiomatic-css/tree/master/translations/zh-CN)
-
-
-<a name="acknowledgements"></a>
-## Acknowledgements
-
-Thanks to everyone who has provided translations and to all those who
-contributed to [idiomatic.js](https://github.com/rwldrn/idiomatic.js). It was a
-source of inspiration, quotations, and guidelines.
-
-
-<a name="license"></a>
-## License
-
-_Principles of writing consistent, idiomatic CSS_ by Nicolas Gallagher is
-licensed under the [Creative Commons Attribution 3.0 Unported
-License](http://creativecommons.org/licenses/by/3.0/). This applies to all
-documents and translations in this repository.
-
-Based on a work at
-[github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css).
