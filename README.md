@@ -1,8 +1,8 @@
-# Principles of writing consistent, idiomatic CSS
+# MUI CSS Styleguide (Adapted from necolas/idomatic-css)
 
 The following document outlines a reasonable style guide for CSS development.
 These guidelines strongly encourage the use of existing, common, sensible
-patterns. They should be adapted as needed to create your own style guide.
+patterns.
 
 This is a living document and new ideas are always welcome. Please
 contribute.
@@ -15,8 +15,6 @@ contribute.
 3. [Comments](#comments)
 4. [Format](#format)
 5. [Practical example](#example)
-
-[Acknowledgements](#acknowledgements)
 
 [License](#license)
 
@@ -45,10 +43,8 @@ be consistent in your use of whitespace. Use whitespace to improve
 readability.
 
 * _Never_ mix spaces and tabs for indentation.
-* Choose between soft indents (spaces) or real tabs. Stick to your choice
-  without fail. (Preference: spaces)
-* If using spaces, choose the number of characters used per indentation level.
-  (Preference: 4 spaces)
+* Use soft indents (spaces).
+* Use 2 spaces per indentation level.
 
 Tip: configure your editor to "show invisibles" or to automatically remove
 end-of-line whitespace.
@@ -69,7 +65,7 @@ code.
 Comment style should be simple and consistent within a single code base.
 
 * Place comments on a new line above their subject.
-* Keep line-length to a sensible maximum, e.g., 80 columns.
+* Keep line-length to a maximum 79 columns.
 * Make liberal use of comments to break CSS code into discrete sections.
 * Use "sentence case" comments and consistent text indentation.
 
@@ -79,12 +75,13 @@ comment patterns.
 Example:
 
 ```css
-/* ==========================================================================
-   Section comment block
-   ========================================================================== */
+// ==========================================================================
+// Section comment block
+// ==========================================================================
 
-/* Sub-section comment block
-   ========================================================================== */
+// --------------------------------------------------------------------------
+// Sub-section comment block
+// --------------------------------------------------------------------------
 
 /**
  * Short description using Doxygen-style comment format
