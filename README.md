@@ -16,8 +16,6 @@ contribute.
 4. [Format](#format)
 5. [Practical example](#example)
 
-[License](#license)
-
 
 <a name="general-principles"></a>
 ## 1. General principles
@@ -137,14 +135,14 @@ in useful diffs and blames.
 .selector-1,
 .selector-2,
 .selector-3[type="text"] {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: block;
-  font-family: helvetica, arial, sans-serif;
-  color: #333;
+  -webkit-box-sizing: border-box;
   background: #fff;
   background: linear-gradient(#fff, rgba(0, 0, 0, 0.8));
+  box-sizing: border-box;
+  color: #333;
+  display: block;
+  font-family: helvetica, arial, sans-serif;
 }
 
 .selector-a,
