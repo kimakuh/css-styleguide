@@ -43,8 +43,8 @@ readability.
 * _Never_ mix spaces and tabs for indentation.
 * Use soft indents (spaces).
 * Use 2 spaces per indentation level.
-* Use 3 line breaks before an L1 comment block ("===")
-* Use 2 line breaks before an L2 comment block ("---")
+* Use 4 line breaks before an L1 comment block ("===")
+* Use 3 line breaks before an L2 comment block ("---")
 * Remove trailing end-of-line whitespace
 
 
